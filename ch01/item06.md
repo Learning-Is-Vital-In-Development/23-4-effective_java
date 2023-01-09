@@ -13,16 +13,23 @@
 ## **String 생성자**
 
 ```java
-#1
-String s = new Srting("message");
+// #1 new 연산자를 이용한 방식 
+String s = new String("message");
 
-#2
+// #2 리터럴을 이용한 방식
 Srting s = "message";
 ```
 
 #1 의 경우 실행될 때 마다 새로운 String 인스턴스를 만든다.
 
+- new를 통해 String을 생성하면 Heap 영역에 존재하게 된다.
+
 #2 의 경우 새로운 인스턴스를 매번 만들지 않고, 하나의 String 인스턴스를 사용
+
+- string constant pool이라는 영역에 존재하게 된다.
+
+![images_jeb1225_post_485f7cbb-f34d-4ba3-8c11-d397b2749842_image.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6b81a17b-06cc-4e85-96df-7c4c29a398db/images_jeb1225_post_485f7cbb-f34d-4ba3-8c11-d397b2749842_image.png)
+
 
 <br>
 
@@ -78,7 +85,11 @@ Pattern은 입력받은 정규 표현식에 해당하는 FSM을 만들기 때문
 
 ## **어뎁터**
 
-어뎁터는 뒷단 객체만 관리를 하면 됨.
+어뎁터는 실제 작업은 뒷단 객체에 위임하고, 자신은 제 2의 인터페이스 역할을 해주는 객체다.
+
+어뎁터는 뒷단 객체만 관리하면 된다. 
+
+→ 그 외는 신경을 안써도 되기에 뒷단 객체 하나당 어뎁터 하나씩만 만들어지면 충분하다.
 
 ```java
 Map<String, Integer> map = new HashMap<>();
