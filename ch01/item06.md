@@ -28,7 +28,8 @@ Srting s = "message";
 
 - string constant pool이라는 영역에 존재하게 된다.
 
-![images_jeb1225_post_485f7cbb-f34d-4ba3-8c11-d397b2749842_image.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6b81a17b-06cc-4e85-96df-7c4c29a398db/images_jeb1225_post_485f7cbb-f34d-4ba3-8c11-d397b2749842_image.png)
+![images_jeb1225_post_485f7cbb-f34d-4ba3-8c11-d397b2749842_image](https://user-images.githubusercontent.com/55054505/211319423-535816e9-2e78-4e96-be13-21f2ce608470.png)
+
 
 
 <br>
