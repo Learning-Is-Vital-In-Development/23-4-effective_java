@@ -31,7 +31,7 @@ marp : true
 
 Managed Language는 메모리를 전혀 신경 쓰지 않아도 될까?
 - 언어 차원에서 지원해주는 방법(자바에선 Garbage Collection)이 완벽할 수 없다.
-- 개발자가 놓치는 순가 Out Of Memory를 보게 될 것이다.
+- 개발자가 놓치는 순간 Out Of Memory를 보게 될 것이다.
 
 간단한 스택 클래스 코드를 보자
 ```java
@@ -163,7 +163,7 @@ GC의 동작방식을 간략히 설명하면 다음과 같다.
 1. 힙(Heap) 영역 내 객체 중에서 가비지(Garbage)를 찾아낸다.
 2. 찾아낸 가비지를 제거한 후 메모리를 회수한다.
 
-이때 가비지를 판별하기 위해 `reachability`라는 개념을 사용한다. 어떤 객체가 유요한 참조가 있으면 `reachable`로, 없으면 `unreachable`로 구별한다. 이때 unreachable 객체를 가비지르 판단하여 GC를 수행한다.
+이때 가비지를 판별하기 위해 `reachability`라는 개념을 사용한다. 어떤 객체가 유효한 참조가 있으면 `reachable`로, 없으면 `unreachable`로 구별한다. 이때 unreachable 객체를 가비지로 판단하여 GC를 수행한다.
 
 ---
 
@@ -193,5 +193,3 @@ Java의 Reference는 4가지가 있다.
 ---
 
 # 감사합니다
-
----
