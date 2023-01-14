@@ -159,12 +159,6 @@ HashTable의 예로 들자면, 원본 버킷의 내용을 put(key, value) 메서
 
 ---
 
-### 생성자에서는 재정의될 수 있는 메서드를 호출하지 않아야 한다.
-
-만약 clone이 하위 클래스에서 재정의한 메서드를 호출하면, 하위 클래스는 복제 과정에서 자신의 상태를 교정할 기회를 잃게되어 원본과 복제본의 상태가 달라질 수 있다.
-
----
-
 ### 예외처리
 
 재정의한 메서드에서는 throws 절을 없애야 한다.
@@ -173,7 +167,17 @@ HashTable의 예로 들자면, 원본 버킷의 내용을 put(key, value) 메서
 그렇지 않으면 clone 메서드를 호출 할 때마다 예외 처리를 해야하기 때문에 불편합니다.
 (CloneNotSupportedException 체크 예외이다.)
 
-하위 클래스에서 clone을 동작하지 않게 만들수도 있다.
+---
+
+### 상속해서 사용하기
+
+상속해서 쓰기 위한 클래스라면 Cloneable을 구현해서는 안된다.
+
+하지만 Object의 동작 방식을 모방하여 구현할 수 있습니다.
+
+이와같이 Cloneable의 구현 여부를 하위 클래스에서 선택하게 해야한다.
+
+다른 방법으로는 하위 클래스에서 clone을 동작하지 않게 만들수도 있다.
 ```
 @Override
 protected final Object clone() throws CloneNotSupportedException {
