@@ -7,7 +7,7 @@ marp : true
 ---
 ## 목차
 - Comparable에 대하여
-- comparaTo 메서드의 일반 규약
+- compareTo 메서드의 일반 규약
 - 가장 중요한 필드부터 비교하자
 - 기본 숫자 타입은 제공하는 비교 메서드를 이용하자
 - Comparator와의 비교
@@ -15,10 +15,10 @@ marp : true
 ## Comparable에 대하여
 ```java
 public interface Comparable<T> {
-    public int comparaTo(@NotNull T o)
+    public int compareTo(@NotNull T o)
 }
 ```
-- `comparaTo` 메서드 하나만을 가지는 인터페이스
+- `compareTo` 메서드 하나만을 가지는 인터페이스
 - `Object`의 `Equals` 메서드와 2가지 차이점이 존재
     1. 동치성을 넘어 순서 비교 가능
     2. 제너릭 사용 가능
@@ -62,7 +62,7 @@ compareTo 규약을 지키지 못하면 비교 하는 클래스와 어울리지 
 - 가장 핵심적인 필드부터 비교해 나가자. 비교 결과가 0이 아니라면 그 결과를 곧장 반환하자.
     ```java
     public int compareTo(PhoneNumber pn) {
-        int result = Short.compare(areaCode, pn.areaCdoe); // 가장 중요한 필드
+        int result = Short.compare(areaCode, pn.areaCode); // 가장 중요한 필드
         if (result != 0) return result;
 
         result = Short.compare(prefix, pn.prefix) // 두 번쨰로 중요한 필드
