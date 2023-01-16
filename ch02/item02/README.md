@@ -65,11 +65,11 @@ public class Object {
 
 ```java
 public class Object {
-	private final int requiredField1 = -1; 
-	private final int requiredField2 = -1;
-	private final int optionalField1 = 0;
-	private final int optionalField2 = 0;
-	private final int optionalField3 = 0;
+	private int requiredField1 = -1; 
+	private int requiredField2 = -1;
+	private int optionalField1 = 0;
+	private int optionalField2 = 0;
+	private int optionalField3 = 0;
 	
 	public Object() {}
     
