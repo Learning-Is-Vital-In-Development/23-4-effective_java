@@ -6,7 +6,7 @@ marp: true
 
 ## 목차
 
-1. toString 메서드의 잃반 규약
+1. toString 메서드의 일반 규약
 2. toString 메서드 재정의
 
 ---
