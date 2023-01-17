@@ -9,3 +9,5 @@
 - [item05 - 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch02/item05)
 - [item06 - 불필요한 객체 생성을 피하라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch02/item06)
 - [item07 - 다 쓴 객체 참조를 해제하라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch02/item07)
+- [item08 - finalizer와 cleaner 사용을 피하라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch02/item08)
+- [item09 - try-fianlly 보다는 try-with-resources 를 사용하라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch02/item09)
