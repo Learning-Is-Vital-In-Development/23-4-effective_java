@@ -98,3 +98,6 @@ public class Outer {
 * `getter`, `setter`를 사용했다고 해서 캡슐화를 제공한다고 할 수 있을까? 예전에 오브젝트에서 `getter` `setter`가 캡슐화를 의미하지는 않는다고 비슷한 말을 봤던 것 같은데..
 * 어렵게 느껴지는 이유는 아무래도 이것을 활용해 애플리케이션을 많이 만들어보지 않았기 때문이라고 생각한다. 여기서 그치지 말고 적용해보면서 지금까지 작성한 게 과연 맞는건지 검증하는 작업이 반드시 필요함을 느꼈다.
 * 결론은 `public` 클래스에서는 필드를 `public`으로 정의하는 것은 좋은 선택이 아니지만, `default` 클래스나 `private` 중첩 클래스에서는 가끔 `public`으로 정의하는 게 더 나은 경우가 있다는 것이다.
+## 참고
+* [[java] 접근 지정자 (private, public, protected, default)](https://luyin.tistory.com/232)
+* [API를 수정하지 않고는 내부 표현을 바꿀 수 없습니다. 관련 피드백](https://github.com/Hyeon9mak/Hyeon9mak.github.io/issues/110)
