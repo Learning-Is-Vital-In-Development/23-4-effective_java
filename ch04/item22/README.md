@@ -15,14 +15,14 @@ marp: true
 
 ~~~java
 public interface PhysicalConstants {
-    // 아보가드로 수 (1/몰)
-    static final double AVOGADROS_NUMBER = 6.022_140_857e23;
+	// 아보가드로 수 (1/몰)
+	static final double AVOGADROS_NUMBER = 6.022_140_857e23;
 
-    // 볼츠만 상수 (J/K)
-    static final double BOLTZMANN_CONSTANT = 1.380_648_52e-23;
+	// 볼츠만 상수 (J/K)
+	static final double BOLTZMANN_CONSTANT = 1.380_648_52e-23;
 
-    // 전자 질량 (kg)
-    static final double ELECTRON_MASS = 9.109_383_56e-31;
+	// 전자 질량 (kg)
+	static final double ELECTRON_MASS = 9.109_383_56e-31;
 
 }
 ~~~
@@ -31,8 +31,8 @@ public interface PhysicalConstants {
 
 ## 상수 인터페이스 안티패턴은 인터페이스를 잘못 사용한 예다.
 
-* 상수 인터페이스를 구현하는 것은 내부 구현을 API로 노출하는 행위다.
-* 상수들을 사용하지 않더라도 호환성을 위해 여전히 상수 인터페이스를 구현하고 있어야 한다.
+* 상수 인터페이스를 구현하는 것은 내부 구현을 클래스 API로 노출하는 행위다.
+* 상수들을 사용하지 않더라도 바이너리 호환성을 위해 여전히 상수 인터페이스를 구현하고 있어야 한다.(바이너리 호환성 : 클래스를 변경할 때, 그 클래스를 사용하는 클래스들에서 리컴파일 할 필요가 없어야 된다.)
 * final이 아닌 클래스가 상수 인터페이스를 구현한다면 모든 하위 클래스의 이름공간이 그 인터페이스가 정의한 상수들로 오염된다.
 
 ---
@@ -89,16 +89,16 @@ public enum Planet {
 
 ~~~java
 public interface PhysicalConstants {
-    private PhysicalConstants() {} // 인스턴스화 방지
+	private PhysicalConstants() {} // 인스턴스화 방지
 
-    // 아보가드로 수 (1/몰)
-    public static final double AVOGADROS_NUMBER = 6.022_140_857e23;
+	// 아보가드로 수 (1/몰)
+	static final double AVOGADROS_NUMBER = 6.022_140_857e23;
 
-    // 볼츠만 상수 (J/K)
-    public static final double BOLTZMANN_CONSTANT = 1.380_648)52e-23;
+	// 볼츠만 상수 (J/K)
+	static final double BOLTZMANN_CONSTANT = 1.380_648)52e-23;
 
-    // 전자 질량 (kg)
-    public static final double ELECTRON_MASS = 9.109_383_56e-31;
+	// 전자 질량 (kg)
+	static final double ELECTRON_MASS = 9.109_383_56e-31;
 
 }
 ~~~
@@ -113,9 +113,9 @@ public interface PhysicalConstants {
 import static PhysicalConstants.*;
 
 public class Object {
-    double atoms(double mols){
-        return AVOGADROS_NUMBER * mols;
-    }
+	double atoms(double mols){
+		return AVOGADROS_NUMBER * mols;
+	}
 }
 ~~~
 
