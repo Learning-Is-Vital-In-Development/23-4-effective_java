@@ -2,7 +2,7 @@
 
 ## Items
 
-- [item26 - 로 타입은 사용하지 말ㅏ](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch05/item26)
+- [item26 - 로 타입은 사용하지 말라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch05/item26)
 - [item27 - 비검사 경고를 제거하라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch05/item27)
 - [item28 - 배열보다는 리스트를 사용하라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch05/item28)
 - [item29 - 이왕이면 제너릭 타입으로 만들라](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch05/item29)

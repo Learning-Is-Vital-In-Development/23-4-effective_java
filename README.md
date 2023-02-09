@@ -12,6 +12,9 @@
 
 1. [CH02. 객체 생성과 파괴](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch02)
 2. [CH03. 모든 객체의 공통 메서드](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch03)
+3. [CH04. 클래스와 인터페이스](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch04)
+4. [CH05. 제너릭](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch05)
+5. [CH06. 열거 타입과 애너테이션](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch06)
 
 ## 진행 방식
 
