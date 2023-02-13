@@ -65,7 +65,7 @@ ex) Array.asList(T... a), Collections.addAll(Collection<? super T> c, T... eleme
 
 ---
 
-# 배열의 참조가 밖으로 노출
+# 제네릭 가변인수 배열에 다른 메서드가 접근
 
 배열을 그대로 반환하면 힙 오염을 이 메서드를 호출한 쪽의 콜스택까지 전이할 수 있다.
 
