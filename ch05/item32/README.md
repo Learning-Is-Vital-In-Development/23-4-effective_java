@@ -67,6 +67,8 @@ ex) Array.asList(T... a), Collections.addAll(Collection<? super T> c, T... eleme
 
 # 제네릭 가변인수 배열에 다른 메서드가 접근
 
+컴파일러에게 충분한 정보가 주어지지 않아 타입을 잘못 판단할 수 있다.
+
 배열을 그대로 반환하면 힙 오염을 이 메서드를 호출한 쪽의 콜스택까지 전이할 수 있다.
 
 ~~~java
@@ -76,8 +78,8 @@ static <T> T[] toArray(T... args) {
 static <T> T[] pickTwo(T a, T b, T c) {
     switch(ThreadLocalRandom.current().nextInt(3)) {
     case 0: return toArray(a, b);
-    case 1: return toArray(a, b);
-    case 2: return toArray(a, b);
+    case 1: return toArray(a, c);
+    case 2: return toArray(b, c);
     }
     throw new AssertionError(); // 도달할 수 없다. 
 }
@@ -85,6 +87,29 @@ public static void main(String[] args) {
     String[] attributes = pickTwo("test1", "test2", "test3");
 }
 ~~~
+
+---
+
+# 이중 타입추론
+
+
+~~~java
+static Object[] toArray(Object[] args){
+    return args;
+}
+static Object[] pickTwo(Object a, Object b, Object c) {
+    switch(ThreadLocalRandom.current().nextInt(3)) {
+    case 0: return toArray(new Object[]{a,b});
+    case 1: return toArray(new Object[]{a,c});
+    case 2: return toArray(new Object[]{b,c});
+    }
+    throw new AssertionError();
+}
+public static void main(String[] args) {
+    String[] attributes = (String[])pickTwo("test1", "test2", "test3");
+}
+~~~
+
 
 ---
 
@@ -119,8 +144,8 @@ pickTwo 메서드는 String 파라미터 통해 String 타입을 추론하고 �
 static <T> T[] pickTwo(T a, T b, T c) {
     switch(ThreadLocalRandom.current().nextInt(3)) {
     case 0: return toArray(a, b);
-    case 1: return toArray(a, b);
-    case 2: return toArray(a, b);
+    case 1: return toArray(a, c);
+    case 2: return toArray(b, c);
     }
     throw new AssertionError();
 }
@@ -131,29 +156,6 @@ public static void main(String[] args) {
 
 ---
 
-# 이중 타입추론
-
-
-~~~java
-static Object[] toArray(Object[] args){
-    return args;
-}
-static Object[] pickTwo(Object a, Object b, Object c) {
-    switch(ThreadLocalRandom.current().nextInt(3)) {
-    case 0: return toArray(new Object[]{a,b});
-    case 1: return toArray(new Object[]{a,c});
-    case 2: return toArray(new Object[]{b,c});
-    }
-    throw new AssertionError();
-}
-public static void main(String[] args) {
-    String[] attributes = (String[])pickTwo("test1", "test2", "test3");
-}
-~~~
-
-
-
----
 
 ## 제네릭 varargs 매개변수 배열에 다른 메서드가 접근하도록 허용하면 안전하지 않다.
 
@@ -165,8 +167,6 @@ public static void main(String[] args) {
 
 # List로 수정하기
 
-컴파일러가 이 메서드의 타입 안정성을 검증할 수 있다.
-하지만 코드가 지저분해지고 속도가 조금 느려질 수 있다.
 
 ~~~java
 static <T> List<T> flatten(List<? extends T>... lists) {
@@ -176,23 +176,5 @@ static <T> List<T> flatten(List<? extends T>... lists) {
 
 static <T> List<T> flatten(List<List<? extends T>> lists) {
 	... // 수정 후
-	}
-~~~
-
----
-
-# List로 수정하기
-
-~~~java
-static <T> List<T> pickTwo(T a, T b, T c) {
-	switch(ThreadLocalRandom.current().nextInt(3)) {
-	case 0: return List.of(a, b);
-	case 1: return List.of(a, b);
-	case 2: return List.of(a, b);
-	}
-	throw new AssertionError();
-	}
-public static void main(String[] args) {
-	List<String> attributes = pickTwo("test1", "test2", "test3");
 	}
 ~~~
