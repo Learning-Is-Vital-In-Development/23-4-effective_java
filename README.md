@@ -15,7 +15,8 @@
 3. [CH04. 클래스와 인터페이스](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch04)
 4. [CH05. 제너릭](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch05)
 5. [CH06. 열거 타입과 애너테이션](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch06)
-5. [CH07. 람다와 스트림](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch07)
+6. [CH07. 람다와 스트림](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch07)
+7. [CH08. 메서드](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch08)
 
 ## 진행 방식
 
