@@ -17,6 +17,7 @@
 5. [CH06. 열거 타입과 애너테이션](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch06)
 6. [CH07. 람다와 스트림](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch07)
 7. [CH08. 메서드](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch08)
+8. [CH09. 일반적인 프로그래밍 원칙](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch09)
 
 ## 진행 방식
 
