@@ -29,7 +29,7 @@ marp: true
 * 미리 선언부터 해두면 코드가 어수선하고 가독성이 떨어진다.
 * 실제 사용시에 타입과 초깃값이 기억나지 않을 수도 있다.
 * 실제 사용하는 블럭 바깥에 선언된 변수는 그 블록이 끝난 뒤까지 살아 있게 된다.
-    * GC가 해당 변수를 수거하지 않으면
+  * 이 변수를 블럭 바깥에서 사용된다면 예상하지 못한 결과로 이어질 수 있다.
 
 
 ---
@@ -40,16 +40,16 @@ marp: true
 
 ~~~java
 public void method(){
-    // Object object = new Object();
-    // ...
-    // object.setField1(arg);
+        // Object object = new Object();
+        // ...
+        // object.setField1(arg);
 
-    Object object = new Object(arg, ...);
+        Object object = new Object(arg, ...);
 
-    // 생성자로 예를 들어보면 
-    // 객체를 생성하고 나중에 setter 메서드를 통한 초기화 보다는
-    // 생성자에서 값들을 넘겨주고 한번에 생성하는 것이 좋다.
-}
+        // 생성자로 예를 들어보면 
+        // 객체를 생성하고 나중에 setter 메서드를 통한 초기화 보다는
+        // 생성자에서 값들을 넘겨주고 한번에 생성하는 것이 좋다.
+        }
 ~~~
 
 ---
@@ -61,12 +61,12 @@ public void method(){
 
 ~~~java
 Long username;
-try{
-    username = findUsername();
-} catch(CheckedException e){
-    // 예외 처리
-    throw new RuntimeException();
-}
+        try{
+        username = findUsername();
+        } catch(CheckedException e){
+        // 예외 처리
+        throw new RuntimeException();
+        }
 ~~~
 
 ---
@@ -78,10 +78,10 @@ try{
 
 ~~~java
 for (Iterator<Integer> i = c.iterator(); i.hasNext();) {
-	Integer number = i.next();
-}
+        Integer number = i.next();
+        }
 
-i.hasNext(); // 컴파일 에러
+        i.hasNext(); // 컴파일 에러
 ~~~
 
 ---
@@ -92,15 +92,15 @@ i.hasNext(); // 컴파일 에러
 
 ~~~java
 Iterator<Integer> i = c.iterator();
-while (i.hasNext()) {
-	doSomething(i.next());
-}
-...
+        while (i.hasNext()) {
+        doSomething(i.next());
+        }
+        ...
 
-Iterator<Integer> i2 = c2.iterator();
-while (i.hasNext()) { // 버그 발생
-	doSomething(i2.next());
-}
+        Iterator<Integer> i2 = c2.iterator();
+        while (i.hasNext()) { // 버그 발생
+        doSomething(i2.next());
+        }
 ~~~
 
 ---
@@ -112,13 +112,13 @@ while (i.hasNext()) { // 버그 발생
 
 ~~~java
 for (Iterator<Integer> i = c.iterator(); i.hasNext();) {
-	Integer number = i.next();
-}
-...
+        Integer number = i.next();
+        }
+        ...
 
-for (Iterator<Integer> i2 = c2.iterator(); i.hasNext();) { // 컴파일 에러   
-	Integer number = i2.next();
-}
+        for (Iterator<Integer> i2 = c2.iterator(); i.hasNext();) { // 컴파일 에러   
+        Integer number = i2.next();
+        }
 ~~~
 
 ---
