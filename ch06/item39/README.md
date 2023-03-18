@@ -28,16 +28,15 @@ __3. 프로그램 요소를 매개변수로 전달할 마땅한 방법이 없다
     @Override, @Deprecated
 
 - __메타 에너테이션__
-    @Retention: 애너테이션이 유지되는 범위를 지정
-    @Target: 애너테이션이 적용가능한 대상을 지정
+    @Retention: 애너테이션이 유지되는 범위를 지정 (SOURCE, CLASS, RUNTIME)
+    @Target: 애너테이션이 적용가능한 대상을 지정 (TYPE, FIELD, METHOD)
 
 - __사용자 정의 애너테이션__
 ```java
 /** 매개변수 없는 정적 메서드 전용이다. **/
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface Test { // 아무 매개변수 없이 단순히 대상에 마킹하는 애너테이션: 마커 애너테이션
-}
+public @interface Test {} // 아무 매개변수 없이 단순히 대상에 마킹하는 애너테이션: 마커 애너테이션
 ```
 
 ---
