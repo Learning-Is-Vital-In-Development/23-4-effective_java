@@ -123,5 +123,3 @@ public static <E> List<E> checkedList(List<E> list, Class<E> type) {
 ```java
 public <T extends Annotation> T getAnnotation(Class<T> annotationType);
 ```
-
-

@@ -49,7 +49,7 @@ public class InstrumentedHashSet<E> extends HashSet<E> {
 
 ### 의문점
 
-- __addAll을 재정의하면 해결되지 않나요?__
+- __addAll을 재정의하지 않으면 해결되지 않나요?__
 HashSet의 내부 구현에 종속된 해결법이다
 
 - __addAll의 내부 구현을 원소 하나 당 중복호출 금지하는 로직을 적용하면 안 되나요?__
@@ -109,7 +109,7 @@ public class InstrumentedSet<E> extends ForwardingSet<E> {
     public boolean addAll(Collection<? extends E> c) {
         addCount += c.size();
         return super.addAll(c);
-    }
+    }   
 }
 
 ```
@@ -128,7 +128,7 @@ public class ForwardingSet<E> implements Set<E> { //전달 클래스
 }
 
 // 사용 예시
-Set<Instant> times = new InstrumentedSet<>(new TreeSet<>(cmp));
+Set<Instant> times = new InstrumentedSet<>(new TreeSet<>(cmp));          
 Set<E> s = new InstrumentedSet<>(new HashSet<>(INIT_CAPACITY));
 ```
  __전달 클래스를 구현해두면 어떤 Set 구현체라도 받을 수 있으며, 기존 생성자와 함께 사용할 수 있다 (ForwardingSet의 재사용)__
@@ -145,5 +145,4 @@ Set<E> s = new InstrumentedSet<>(new HashSet<>(INIT_CAPACITY));
 
 ## 논의점
 
-__이 책에서 컴포지션을 적용하기 위해 인터페이스 상속을 활용했다. 결론은 구현 상속은 문제가 많으니 인터페이스 상속을 사용하라는 오브젝트의 명언과 같은 결이지 않을까?__
-
+__이 책에서 컴포지션과 인터페이스 상속을 활용하여 상속의 문제점을 해결했다. 결론은 구현 상속은 문제가 많으니 인터페이스 상속을 사용하라는 오브젝트의 명언과 같은 결이지 않을까?__
