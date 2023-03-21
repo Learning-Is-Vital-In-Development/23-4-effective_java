@@ -1,5 +1,5 @@
 # Effective Java 3/E 읽기 모임
-- 기간 : 2023.01.09(월) ~ 완독 시까지
+- 기간 : 2023.01.09(월) ~ 03.27(월)
 - 시간 : 매주 월요일 오후 9시
 - 스터디원 : 7명
 
@@ -18,6 +18,9 @@
 6. [CH07. 람다와 스트림](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch07)
 7. [CH08. 메서드](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch08)
 8. [CH09. 일반적인 프로그래밍 원칙](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch09)
+9. [CH10. 예외](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch10)
+10. [CH11. 동시성](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch11)
+11. [CH12. 직렬화](https://github.com/Backend-in-Book/23-4-effective_java/tree/main/ch12)
 
 ## 진행 방식
 
