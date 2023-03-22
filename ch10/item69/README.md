@@ -56,7 +56,7 @@ marp: true
 	while(true) {
 		Foo foo = i.next();
 		...
-  }
+    }
   } catch (NoSuchElementException e) {}
   ```
 
