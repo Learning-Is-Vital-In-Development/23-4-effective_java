@@ -76,9 +76,95 @@ marp: true
 
 ## (추가) 내 코드에 적용해보기
 
-- 조치 사항
+- 기존 조치 사항
   - 작성자 신고 로직 외부에 `try-catch` 문을 이용해 흐름을 제어 
+  ```java
+  public class ReportExecuteForProduct implements ReportExecuteStrategy {
+    @Override
+    @Transactional
+    public void execute(User reporter, long productId, String reason) {
+        // product에 대한 신고 및 페널티 정책 처리
+        // ...
+
+        // 상품의 작성자에 대해서 추가적인 신고
+        try {
+            long writerId = product.getWriterId();
+            reportExecuteForUser.execute(reporter, writerId, reason); 
+        } catch (IllegalArgumentException ignored) {
+        }
+    }
+  }
+  ```
+
+---
+
+## (추가) 내 코드에 적용해보기
 
 - 개선 방향
   1. 중복 체크를 미리해서 흐름 제어를 하기!
+  ```java
+  public class ReportExecuteForProduct implements ReportExecuteStrategy {
+    @Override
+    @Transactional
+    public void execute(User reporter, long productId, String reason) {
+        // product에 대한 신고 및 페널티 정책 처리
+        // ...
+
+        // 상품의 작성자에 대해서 추가적인 신고
+        long writerId = product.getWriterId();
+        if (reportRepository.existsByReporterIdAndTypeAndTypeId(
+        		reporter.getId(),
+                Report.Type.USER,
+                writerId
+        )) return;
+
+        reportExecuteForUser.execute(reporter, writerId, reason);
+    }
+  }
+  ```
+
+---
+
+## (추가) 내 코드에 적용해보기
+
+- 개선 방향
   2. 멱등성 보장을 위해 신고가 되어 있다면 중복 생성이 아닌 기 신고된 데이터를 확인 후 신고되었다고 반환하기
+  ```java
+  // 상품에 대한 신고 처리
+  public class ReportExecuteForProduct implements ReportExecuteStrategy {
+    @Override
+    @Transactional
+    public void execute(User reporter, long productId, String reason) {
+        // product에 대한 신고 및 페널티 정책 처리
+        // ...
+
+        // 상품의 작성자에 대해서 추가적인 신고
+        long writerId = product.getWriterId();
+        reportExecuteForUser.execute(reporter, writerId, reason);
+    }
+  }
+  ```
+ 
+---
+
+## (추가) 내 코드에 적용해보기
+
+- 개선 방향
+  2. 멱등성 보장을 위해 신고가 되어 있다면 중복 생성이 아닌 기 신고된 데이터를 확인 후 신고되었다고 반환하기
+  ```java
+  // 유저에 대한 신고 처리
+  public class ReportExecuteForUser implements ReportExecuteStrategy {
+    @Override
+    @Transactional
+    public void execute(User reporter, long reportedUserId, String reason) {
+        if (reportRepository.existsByReporterIdAndTypeAndTypeId(
+        		reporter.getId(),
+                Report.Type.USER,
+                reportedUserId
+        )) return;
+
+        // 신고 처리 및 신고에 따른 페널치 정책 처리
+        // ...
+    }
+  }
+  ``` 
