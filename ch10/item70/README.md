@@ -17,7 +17,7 @@ marp: true
 
 - 자바에서 문제 상황을 알리는 타입(`Throwable`)은 3가지로 구성
   1. 검사 예외(`Checked Exception`)
-  2. 런타임 에외(`RuntimeException`, `Unchecked Exception`)
+  2. 런타임 예외(`RuntimeException`, `Unchecked Exception`)
   3. 에러(`Error`)
 
 ---
